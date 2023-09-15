@@ -5,12 +5,22 @@ import './App.css';
 
 import { getMatchups } from './api/getMatchups';
 
+interface Matchup {
+  id: number;
+  name: string;
+  primaryStream: string;
+}
+
 async function App() {
   const [count, setCount] = useState(0);
 
   const matchups = await getMatchups();
 
-  console.log(matchups);
+  const matchesWithStreams = matchups.filter(
+    (matchup: Matchup) => matchup.primaryStream !== null
+  );
+
+  console.log(matchesWithStreams);
 
   return (
     <>

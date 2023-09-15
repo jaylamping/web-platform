@@ -10,7 +10,6 @@ export const getMatchups = async () => {
                 getUpcomingMatchups {
                     name
                     id
-                    externalId
                     primaryStream
                 }
             }
