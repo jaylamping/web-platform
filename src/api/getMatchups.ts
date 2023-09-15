@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-console.log(import.meta.env.VITE_DB_SERVICE_URL);
+const url: string = import.meta.env.VITE_DB_SERVICE_URL;
 
 export const getMatchups = async () => {
   try {
-    const matchups = await axios.post('http://localhost:4000', {
+    const matchups = await axios.post(url, {
       query: `
             query {
                 getUpcomingMatchups {
                     name
                     id
+                    externalId
                     primaryStream
                 }
             }
