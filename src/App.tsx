@@ -11,16 +11,20 @@ interface Matchup {
   primaryStream: string;
 }
 
-async function App() {
+function App() {
   const [count, setCount] = useState(0);
 
-  const matchups = await getMatchups();
+  let matchups: Matchup[] = [];
 
-  const matchesWithStreams = matchups.filter(
-    (matchup: Matchup) => matchup.primaryStream !== null
-  );
+  (async () => {
+    matchups = await getMatchups();
 
-  console.log(matchesWithStreams);
+    const matchesWithStreams = matchups.filter(
+      (matchup: Matchup) => matchup.primaryStream !== null
+    );
+
+    console.log(matchesWithStreams);
+  })();
 
   return (
     <>
