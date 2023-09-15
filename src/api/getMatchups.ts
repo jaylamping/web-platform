@@ -1,9 +1,6 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-console.log(import.meta.env.DB_SERVICE_URL);
+console.log(import.meta.env.VITE_DB_SERVICE_URL);
 
 export const getMatchups = async () => {
   try {
